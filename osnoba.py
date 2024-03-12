@@ -1,16 +1,16 @@
 import pygame as pg
 import setimg as se
+import sprait as sp
 
-# Инициализация pg
 pg.init()
 
 
 
 class Game:
     def __init__(self):
-
-        # Создание окна
+        self.kartinka = pg.image.load('long_tile_pressed.png')
         self.screen = pg.display.set_mode(se.SIZE)
+        self.hota = sp.Hota(50, 50, "c4", 2, self.kartinka)
 
 
         self.run()
@@ -34,11 +34,12 @@ class Game:
         self.screen.fill([255,255,255])
         asd = se.POLOSKI
         dsa = se.SIRINA_POLOSKI
+        self.hota.ris(self.screen)
         while asd > 0:
             pg.draw.line(self.screen, [0,0,0],[dsa,0],[dsa,se.SIZE[1]])
-            pg.display.flip()
             asd = asd - 1
             dsa = dsa + se.SIRINA_POLOSKI
+        pg.display.flip()    
         
 
 if __name__ == "__main__":
