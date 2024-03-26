@@ -9,3 +9,6 @@ class Hota:
 
     def ris(self, okno):
         okno.blit(self.kart, self.kBadrat)
+
+    def dbig(self):
+        self.kBadrat.y = self.kBadrat.y + 2
