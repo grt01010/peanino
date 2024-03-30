@@ -10,9 +10,9 @@ pg.init()
 
 class Game:
     def __init__(self):
-        self.pesha=pa.Pesha(1, 2)
+        self.pesha = pa.Pesha(1, 2)
         self.screen = pg.display.set_mode(se.SIZE)
-        self.casi=pg.time.Clock()
+        self.casi = pg.time.Clock()
         
 
 
@@ -32,6 +32,11 @@ class Game:
             if event.type == pg.QUIT:
                 pg.quit()
                 exit()
+            if event.type == pg.MOUSEBUTTONDOWN:
+                for asd in self.pesha.spisok_hota:
+                    if asd.kBadrat.collidepoint(event.pos):
+                        asd.klik()
+
         
 
     def update(self):

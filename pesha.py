@@ -10,16 +10,20 @@ class Pesha:
         self.spisok_hota=[]
         self.kartinka_mani = pg.image.load('long_tile_pressed.png')
         self.kartinka_mini = pg.image.load('short_tile_pressed.png')
+        self.kartinka_mani_nas = pg.image.load('long_tile.png')
+        self.kartinka_mini_nas = pg.image.load('short_tile.png')
         self.breme = 0
         self.breme_nota = 0
         self.mani=[self.kartinka_mini, self.kartinka_mani]
+        self.mani_nas=[self.kartinka_mini_nas, self.kartinka_mani_nas]
         
         
 
     def socd(self):
         asd=ra.randint(0,se.POLOSKI-1)
         if self.breme-self.breme_nota >1000:
-            self.hota = sp.Hota(asd*se.SIRINA_POLOSKI, 0, "c4", 1, self.mani[ra.randint(0, 1)])
+            a=ra.randint(0, 1)
+            self.hota = sp.Hota(asd*se.SIRINA_POLOSKI, 0, "c4", 1, self.mani[a], self.mani_nas[a])
             self.spisok_hota.append(self.hota)
             self.breme_nota=pg.time.get_ticks()
         
