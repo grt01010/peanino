@@ -7,7 +7,8 @@ class Hota:
         self.kart = kart 
         self.kBadrat = pg.Rect([x, y], kart.get_size())
         self.kart_nas = kart_nas
-        self.zByk = pg.mixer.Sound('Sounds/a-0.ogg')
+        self.zByk = pg.mixer.Sound(F'Sounds/{self.HacBaHie}.ogg')
+
 
     def ris(self, okno):
         okno.blit(self.kart, self.kBadrat)

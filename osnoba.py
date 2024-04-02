@@ -10,7 +10,7 @@ pg.init()
 
 class Game:
     def __init__(self):
-        self.pesha = pa.Pesha(1, 2)
+        self.pesha = pa.Pesha(se.BIRCH_NOTES, se.BIRCH_DURATION)
         self.screen = pg.display.set_mode(se.SIZE)
         self.casi = pg.time.Clock()
         
