@@ -3,6 +3,7 @@ import setimg as se
 import sprait as sp
 import random as ra
 import pesha as pa
+import pygame.freetype as pf
 
 pg.init()
 
@@ -13,6 +14,7 @@ class Game:
         self.pesha = pa.Pesha(se.BIRCH_NOTES, se.BIRCH_DURATION)
         self.screen = pg.display.set_mode(se.SIZE)
         self.casi = pg.time.Clock()
+        self.kones = pf.Font(None, 11)
         
 
 

@@ -17,17 +17,17 @@ class Pesha:
         self.mani=[self.kartinka_mini, self.kartinka_mani]
         self.mani_nas=[self.kartinka_mini_nas, self.kartinka_mani_nas]
         self.ciclo = 0
-        
+        self.kallis = len(self.hazbahie_hot)
         
 
     def socd(self):
         asd=ra.randint(0,se.POLOSKI-1)
-        if self.breme-self.breme_nota >1000:
+        if self.breme-self.breme_nota >1000 and self.kallis>self.ciclo :
             a = self.dlitelhoct_hot[self.ciclo]
             self.hota = sp.Hota(asd*se.SIRINA_POLOSKI, 0, self.hazbahie_hot[self.ciclo], a, self.mani[a-1], self.mani_nas[a-1])
             self.ciclo = self.ciclo + 1
             self.spisok_hota.append(self.hota)
-            self.breme_nota=pg.time.get_ticks()
+            self.breme_nota=pg.time.get_ticks()    
         
     
     def ris(self, okno):
