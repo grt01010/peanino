@@ -5,6 +5,7 @@ import random as ra
 import pesha as pa
 import pygame.freetype as pf
 
+
 pg.init()
 
 
@@ -36,9 +37,8 @@ class Game:
                 exit()
             if event.type == pg.MOUSEBUTTONDOWN:
                 for asd in self.pesha.spisok_hota:
-                    if asd.kBadrat.collidepoint(event.pos):
+                    if asd.kBadrat.collidepoint(event.pos) and asd.has==0:
                         asd.klik()
-
         
 
     def update(self):
@@ -54,7 +54,11 @@ class Game:
             pg.draw.line(self.screen, [0,0,0],[dsa,0],[dsa,se.SIZE[1]])
             asd = asd - 1
             dsa = dsa + se.SIRINA_POLOSKI
-        pg.display.flip()    
+        if  self.pesha.kallis==self.pesha.ciclo:
+            self.kones.render_to(self.screen, [se.SIZE[0]/2, se.SIZE[1]/2], 'конец игры')
+
+        pg.display.flip()   
+
         
 
 if __name__ == "__main__":
