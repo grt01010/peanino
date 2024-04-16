@@ -4,6 +4,7 @@ import sprait as sp
 import random as ra
 import pesha as pa
 import pygame.freetype as pf
+import mene as me
 
 
 pg.init()
@@ -16,6 +17,8 @@ class Game:
         self.screen = pg.display.set_mode(se.SIZE)
         self.casi = pg.time.Clock()
         self.kones = pf.Font(None, 11)
+        self.mene = me.Mene(self)
+        self.igra = 0
         
 
 
@@ -23,9 +26,14 @@ class Game:
 
     def run(self):
         while True:
-            self.event()
-            self.update()
-            self.ris()
+            if self.igra==0:
+                self.mene.event()
+                self.mene.update()
+                self.mene.ris()
+            else:
+                self.event()
+                self.update()
+                self.ris()
             self.casi.tick(60)
             
             
