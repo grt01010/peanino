@@ -18,5 +18,10 @@ class Hota:
 
     def klik(self):
         self.kart = self.kart_nas
+        a = pg.mixer.find_channel()
+        if a == None:
+            pg.mixer.stop()
+        else:
+            a.queue(self.zByk)
         self.zByk.play()
         self.has=1

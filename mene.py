@@ -59,8 +59,9 @@ class Mene:
                         self.pes3 = [51, 255, 189]
                         self.pes2 = [255, 87, 51]
 
-                if event.key  == pg.K_RETURN:
+                if event.key == pg.K_RETURN:
                     self.game.igra=1
+                    self.game.pesha.spisok_hota = []
                     if self.nomer == 1:
                         self.game.pesha=pa.Pesha(se.CHRISTMAS_TREE_NOTES, se.CHRISTMAS_TREE_DURATION)
                     if self.nomer == 2:

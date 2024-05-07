@@ -38,3 +38,10 @@ class Pesha:
         for a in self.spisok_hota:
             a.dbig()
         self.breme=pg.time.get_ticks()
+
+    def nasok (self):
+        jojo=0
+        for f in self.spisok_hota:
+            if f.has==0:
+               jojo = jojo + 1
+        return jojo

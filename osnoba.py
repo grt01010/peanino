@@ -8,6 +8,7 @@ import mene as me
 
 
 pg.init()
+pg.mixer.init(channels=10)
 
 
 
@@ -28,7 +29,7 @@ class Game:
         while True:
             if self.igra==0:
                 self.mene.event()
-                self.mene.update()
+                self.mene.update() 
                 self.mene.ris()
             else:
                 self.event()
@@ -47,7 +48,12 @@ class Game:
                 for asd in self.pesha.spisok_hota:
                     if asd.kBadrat.collidepoint(event.pos) and asd.has==0:
                         asd.klik()
-        
+            if event.type == pg.KEYDOWN:
+                if event.key == pg.K_RETURN:
+                    self.igra = 0
+                    pg.mixer.stop()
+                    
+
 
     def update(self):
         self.pesha.socd()
@@ -62,12 +68,15 @@ class Game:
             pg.draw.line(self.screen, [0,0,0],[dsa,0],[dsa,se.SIZE[1]])
             asd = asd - 1
             dsa = dsa + se.SIRINA_POLOSKI
-        if  self.pesha.kallis==self.pesha.ciclo:
-            self.kones.render_to(self.screen, [se.SIZE[0]/2, se.SIZE[1]/2], 'конец игры')
+        if  self.pesha.kallis==self.pesha.ciclo and self.pesha.spisok_hota[-1].kBadrat.y>600 :
+            nena=self.pesha.nasok()
+            if nena == 0:
+                self.kones.render_to(self.screen, [se.SIZE[0]/2, se.SIZE[1]/2], 'вы победили')
+            if nena > 0:
+                self.kones.render_to(self.screen, [se.SIZE[0]/2, se.SIZE[1]/2], 'вы проиграли')
 
         pg.display.flip()   
 
         
-
 if __name__ == "__main__":
     Game()
